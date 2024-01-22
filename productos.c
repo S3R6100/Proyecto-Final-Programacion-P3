@@ -12,6 +12,7 @@ void leerProducto(char nombres[MAX_PRODUCTOS][MAX_NOMBRE], float precios[MAX_PRO
     printf("Cuantos productos desea leer?\n");
     scanf(" %d", &numeroProductosALeer);
 
+    if (numeroProductosALeer < MAX_PRODUCTOS){
     for (int i = 0; i < numeroProductosALeer && *numProductos < MAX_PRODUCTOS; i++) {
         printf("\nIngrese el nombre del producto %d:\n", *numProductos + 1);
         scanf(" %s", nombres[*numProductos]);
@@ -23,6 +24,8 @@ void leerProducto(char nombres[MAX_PRODUCTOS][MAX_NOMBRE], float precios[MAX_PRO
         scanf(" %d", &stock[*numProductos]);
 
         (*numProductos)++;
+    }} else{
+        printf("No se pueden leer mas productos.\n");
     }
 
     if (*numProductos >= MAX_PRODUCTOS) {
