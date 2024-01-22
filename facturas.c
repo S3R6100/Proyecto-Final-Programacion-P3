@@ -6,11 +6,9 @@
 #include "fecha.h"
 #include "validar.h"
 
-void facturar() { // Añadir llave de apertura
-    char archivo[MAX_NOMBRE];
-    printf("Ingrese el nombre del archivo de facturas: ");
-    scanf("%s", archivo);
-
+void facturar() { 
+    char archivo[]= "facturas.txt";
+    
     FILE *f = fopen(archivo, "a+");
     if (f == NULL) {
         printf("Error al abrir el archivo de facturas.\n");
@@ -66,9 +64,10 @@ void facturar() { // Añadir llave de apertura
         printf("Cédula inválida.\n");
     }
     fclose(f);
-} // Añadir llave de cierre
+}
 
-void buscarFactura(char *archivo) { // Añadir llave de apertura
+void buscarFactura() {
+  char archivo[50]= "facturas.txt";
     FILE *f = fopen(archivo, "r");
     if (f == NULL) {
         printf("Error al abrir el archivo de facturas.\n");
