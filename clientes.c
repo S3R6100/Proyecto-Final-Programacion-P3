@@ -3,9 +3,11 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "funciones.h"
+#include "validar.h"
 FILE *archivoFacturas;
 FILE *archivo;
-int validarCedulaEcuatoriana(const char *cedula) {
+
+/*int validarCedulaEcuatoriana(const char *cedula) {
     // Verificar que la cédula tenga 10 dígitos
     if (strlen(cedula) != 10) {
         return 0; // Cédula incorrecta por longitud
@@ -45,8 +47,7 @@ int validarCedulaEcuatoriana(const char *cedula) {
 
     // Verificar que el dígito verificador sea igual al décimo dígito de la cédula
     return digitoVerificador == (cedula[9] - '0');
-}
-
+}*/
 
 void ingresarCliente(char clientes[][CLIENTES_COLUMNAS], int *numClientes, char cedula[], char nombre[]) {
   FILE *archivoClientes;
@@ -59,7 +60,7 @@ void ingresarCliente(char clientes[][CLIENTES_COLUMNAS], int *numClientes, char 
                 printf("Ingrese el número de cédula ecuatoriana (10 dígitos): ");
                 scanf("%s", cedula);
 
-                if (validarCedulaEcuatoriana(cedula)) {
+                if (validarCedula(cedula)) {
                     printf("La cédula es válida.\n");
                     cedulaValida = 1;
                 } else {
